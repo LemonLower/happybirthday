@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Birthday Chelseaaaaaaaaaaaaaaaaaaaaaa!</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+    body {
+      font-family: 'Quicksand', Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffe6e6 0%, #f6d365 100%);
+      overflow-x: hidden;
+      position: relative;
+    }
+    h1 {
+      color: #ff4081;
+      font-family: 'Pacifico', cursive;
+      font-size: 3rem;
+      margin-top: 60px;
+      text-shadow: 2px 2px 8px #fff0f6;
+    }
+    .message {
+      font-size: 1.3rem;
+      margin: 30px auto 20px auto;
+      max-width: 600px;
+      background: rgba(255,255,255,0.7);
+      border-radius: 18px;
+      padding: 24px;
+      color: #d72660;
+      box-shadow: 0 4px 24px rgba(255, 64, 129, 0.07);
+    }
+    .gallery {
+      margin: 30px auto 0 auto;
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+    }
+
+    .gallery img,
+    .gallery video {
+      width: auto;
+      max-width: 300px;
+      max-height: 450px;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+      border: 3px solid #fff;
+      object-fit: cover;
+      display: block;
+    }
+    .confetti {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .play-btn {
+      margin-top: 25px;
+      padding: 14px 30px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4081;
+      color: #fff;
+      font-size: 1.2rem;
+      font-family: 'Quicksand', sans-serif;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(255, 64, 129, 0.25);
+      transition: background 0.3s, transform 0.2s;
+    }
+    .play-btn:hover {
+      background: #d72660;
+      transform: scale(1.07);
+    }
+  </style>
+</head>
+<body>
+  <div class="confetti"></div>
+  <h1>SEVENTEEN.</h1>
+  <div class="message">
+    <p>
+      Bro. You're aging. Nearly an adult yet still acts like a child 😭. Never change tho<br>
+      But fr I'm glad to watch you grow, not just in age but as a person. I've seen so many versions of you: sad, insane, loud, soft, real, mad, happy, excited, clingy, hot (duh). And despite all the chaos, you somehow became one of the most constant, loyal, and important people in my life.<br>
+      I legit don’t think I could’ve survived the past years without your crazy ass. You’ve seen me at my best, worst, dumbest, and everything in between, and you still stayed. You’re a fucking blessing.<br>
+      I’m so fucking proud of you. Of how far you’ve come, and of how far you’re gonna go. I hope 17 brings you healing, peace, laughter, new adventures and I HOPE less trauma (Knowing us, there will definitely be more than less ////:).<br>
+      So cheers to your birthday. To more late-night rants, dumb decisions, trips, karaoke, smoking (😇), crying in bathrooms, healing arcs, relapses, and chaotic-ass love. You're stuck with me for life biatch . There’s no off-ramp on this hell ride we started.<br>
+      <b>I love you more than I should</b><br>
+      <b>Tara gala? With more grown-up problems and ₱100 in our wallets again HAHAHAHAH</b><br>
+      <b>Your favorite asshole, forever</b>
+    </p>
+  </div>
+  <button class="play-btn" onclick="playSong()">Play Birthday Song 🎶</button>
+  <audio id="bday-audio" src="assets/Happy-Birthday.mp3"></audio>
+  <button class="play-btn" onclick="stopSong()">Stop Birthday Song 🔇</button>
+  <div class="gallery">
+    <!-- Replace these image links with your own! -->
+    <img src="assets/image1.jpg" alt="Memory 1">
+    <img src="assets/image2.jpg" alt="Memory 2">
+    <video src="assets/video.mp4" alt="Memory 3" controls muted></video>
+    <img src="assets/image3.jpg" alt="Memory 4">
+    <img src="assets/image4.jpg" alt="Memory 5">
+  </div>
+  <script>
+    // Confetti animation
+    const confettiContainer = document.querySelector('.confetti');
+    for(let i = 0; i < 40; i++) {
+      const piece = document.createElement('div');
+      piece.style.position = 'absolute';
+      piece.style.left = Math.random() * 100 + 'vw';
+      piece.style.top = Math.random() * 100 + 'vh';
+      piece.style.width = (8 + Math.random() * 12) + 'px';
+      piece.style.height = piece.style.width;
+      piece.style.backgroundColor = `hsl(${Math.random() * 360}, 80%, 70%)`;
+      piece.style.opacity = 0.85;
+      piece.style.borderRadius = '50%';
+      piece.style.animation = `fall ${2 + Math.random() * 4}s linear infinite`;
+      piece.style.animationDelay = (Math.random() * 5) + 's';
+      confettiContainer.appendChild(piece);
+    }
+    // Confetti keyframes
+    const styleSheet = document.createElement("style");
+    styleSheet.innerText = `
+      @keyframes fall {
+        0% { transform: translateY(-120vh) rotate(0deg); opacity: 1; }
+        100% { transform: translateY(120vh) rotate(360deg); opacity: 0; }
+      }
+    `;
+    document.head.appendChild(styleSheet);
+
+    // Birthday song
+    function playSong() {
+      document.getElementById('bday-audio').play();
+    }
+    function stopSong() {
+      const audio = document.getElementById('bday-audio');
+      audio.pause();
+      audio.currentTime = 0; // Reset to start
+    }
+  </script>
+</body>
+</html>
